@@ -327,7 +327,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
 
               {/* Price */}
-              <p className="text-2xl font-bold mb-4">{product.price}</p>
+              
 
               {/* Description */}
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">{product.description}</p>
