@@ -11,6 +11,7 @@ const products = [
     name: "Manduka PRO Yoga Mat",
     slug: "manduka-pro-yoga-mat",
     image: "https://m.media-amazon.com/images/I/91WnKjpclwL._AC_SX679_.jpg",
+    additionalImages: ["/manduka-mat-in-use-yoga-studio.jpg", "/manduka-mat-texture-close-up.jpg"],
     rating: 4.4,
     price: "$113.00",
     review:
@@ -38,6 +39,7 @@ const products = [
     name: "Liforme Inked Yoga Mat",
     slug: "liforme-inked-yoga-mat",
     image: "https://m.media-amazon.com/images/I/51lIvo5TnuL._AC_SX679_.jpg",
+    additionalImages: ["/liforme-mat-alignment-markers-detail.jpg", "/liforme-mat-hot-yoga-session.jpg"],
     rating: 4.6,
     price: "$150.00",
     review:
@@ -65,6 +67,7 @@ const products = [
     name: "JadeYoga Harmony Yoga Mat",
     slug: "jade-harmony-yoga-mat",
     image: "https://m.media-amazon.com/images/I/61Ut5qGMJXL._AC_SX679_.jpg",
+    additionalImages: ["/jade-mat-natural-rubber-texture.jpg", "/jade-mat-outdoor-yoga-practice.jpg"],
     rating: 4.4,
     price: "$84.99",
     review:
@@ -92,6 +95,7 @@ const products = [
     name: "PAETA Pilates Reformer Machine",
     slug: "paeta-pilates-reformer-machine",
     image: "https://m.media-amazon.com/images/I/61i4MZg2wML._AC_SX679_.jpg",
+    additionalImages: ["/reformer-machine-in-home-studio.jpg", "/reformer-carriage-springs-detail.jpg"],
     rating: 4.5,
     price: "$679.99",
     review:
@@ -119,6 +123,7 @@ const products = [
     name: "Syntus Yoga Block and Strap Set",
     slug: "syntus-yoga-block-strap-set",
     image: "https://m.media-amazon.com/images/I/61iMXcdFasL._AC_SX679_PIcountsize-3,TopRight,0,0_SH20_.jpg",
+    additionalImages: ["/yoga-blocks-supporting-pose.jpg", "/yoga-strap-stretching-exercise.jpg"],
     rating: 4.8,
     price: "$15.99",
     review:
@@ -146,6 +151,7 @@ const products = [
     name: "GHB Gymnastic Rings",
     slug: "ghb-gymnastic-rings",
     image: "https://m.media-amazon.com/images/I/71UW77JqzwL._AC_SX679_.jpg",
+    additionalImages: ["/gymnastic-rings-workout-dips.jpg", "/gymnastic-rings-mounting-setup.jpg"],
     rating: 4.5,
     price: "$39.99",
     review:
@@ -173,6 +179,7 @@ const products = [
     name: "Stretching Strap with Loops",
     slug: "stretching-strap-loops",
     image: "https://m.media-amazon.com/images/I/81yFA8fjcbL._AC_SX679_.jpg",
+    additionalImages: ["/stretching-strap-loops-leg-stretch.jpg", "/stretching-strap-physical-therapy.jpg"],
     rating: 4.7,
     price: "$19.95",
     review:
@@ -199,6 +206,7 @@ const products = [
     name: "OPTP Original Stretch Out Strap",
     slug: "optp-stretch-out-strap",
     image: "https://m.media-amazon.com/images/I/719dg2bMHvL._AC_SX679_.jpg",
+    additionalImages: ["/optp-strap-hamstring-stretch.jpg", "/optp-strap-exercise-book-guide.jpg"],
     rating: 4.7,
     price: "$15.95",
     review:
@@ -225,6 +233,7 @@ const products = [
     name: "ProBody Pilates Exercise Ball",
     slug: "probody-pilates-exercise-ball",
     image: "https://m.media-amazon.com/images/I/816BIBf-+ZL._AC_SX679_.jpg",
+    additionalImages: ["/exercise-ball-core-workout.jpg", "/exercise-ball-office-chair-use.jpg"],
     rating: 4.5,
     price: "$17.95",
     review:
@@ -276,13 +285,28 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Product Image */}
-            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={product.image || "/placeholder.svg"}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
+            {/* Product Images Gallery */}
+            <div className="space-y-4">
+              {/* Main Product Image */}
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Two Additional Product Images */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src={product.additionalImages?.[0] || "/placeholder.svg?height=400&width=400"}
+                    alt={`${product.name} in use`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+              </div>
             </div>
 
             {/* Product Details */}
@@ -303,7 +327,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
 
               {/* Price */}
-              
+              <p className="text-2xl font-bold mb-4">{product.price}</p>
 
               {/* Description */}
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">{product.description}</p>
