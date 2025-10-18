@@ -7,7 +7,6 @@ import { Check, X } from "lucide-react"
 const products = [
   {
     name: "Manduka PRO",
-    price: "$120",
     thickness: "6mm",
     grip: "Excellent",
     eco: true,
@@ -15,7 +14,6 @@ const products = [
   },
   {
     name: "Liforme",
-    price: "$140",
     thickness: "4.2mm",
     grip: "Excellent",
     eco: true,
@@ -23,7 +21,6 @@ const products = [
   },
   {
     name: "Gaiam",
-    price: "$30",
     thickness: "5mm",
     grip: "Good",
     eco: false,
@@ -55,7 +52,6 @@ export function ComparisonSection() {
               <thead className="bg-muted">
                 <tr>
                   <th className="p-4 text-left font-serif text-lg">Product</th>
-                  <th className="p-4 text-left font-serif text-lg">Price</th>
                   <th className="p-4 text-left font-serif text-lg">Thickness</th>
                   <th className="p-4 text-left font-serif text-lg">Grip</th>
                   <th className="p-4 text-left font-serif text-lg">Eco-Friendly</th>
@@ -66,7 +62,6 @@ export function ComparisonSection() {
                 {products.map((product, index) => (
                   <tr key={product.name} className="border-t border-border hover:bg-muted/50 transition-colors">
                     <td className="p-4 font-medium">{product.name}</td>
-                    <td className="p-4">{product.price}</td>
                     <td className="p-4">{product.thickness}</td>
                     <td className="p-4">{product.grip}</td>
                     <td className="p-4">
